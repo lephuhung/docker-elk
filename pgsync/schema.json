@@ -1,0 +1,37 @@
+[
+  {
+    "database": "postgres",
+    "index": "datadoc_index",
+    "nodes": {
+      "table": "datadoc"
+    }
+  },
+  {
+    "database": "postgres",
+    "index": "post_index",
+    "nodes": {
+      "table": "post"
+    }
+  },
+  {
+    "database": "postgres",
+    "index": "comment_index",
+    "nodes": {
+      "table": "comment"
+    }
+  },
+  {
+    "database": "postgres",
+    "index": "page_index",
+    "nodes": {
+      "table": "page"
+    }
+  },
+  {
+    "database":"postgres",
+    "index": "tags_index",
+    "nodes": {
+      "table":"tags_data"
+    }
+  }
+]

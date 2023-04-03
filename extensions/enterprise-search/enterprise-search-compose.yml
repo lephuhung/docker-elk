@@ -12,6 +12,8 @@ services:
       JAVA_OPTS: -Xms2g -Xmx2g
       ENT_SEARCH_DEFAULT_PASSWORD: 'changeme'
       ELASTIC_PASSWORD: ${ELASTIC_PASSWORD:-}
+      ent_search.auth.source: standard
+      worker.threads: '6'
     ports:
       - 3002:3002
     networks:

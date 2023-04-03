@@ -55,6 +55,11 @@ services:
       # Use single node discovery in order to disable production mode and avoid bootstrap checks.
       # see: https://www.elastic.co/guide/en/elasticsearch/reference/current/bootstrap-checks.html
       discovery.type: single-node
+      # bootstrap.memory_lock: true
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
     networks:
       - elk
     restart: unless-stopped
@@ -90,6 +95,7 @@ services:
       - ./kibana/config/kibana.yml:/usr/share/kibana/config/kibana.yml:ro,Z
     ports:
       - 5601:5601
+      # - 3002:3002
     environment:
       KIBANA_SYSTEM_PASSWORD: ${KIBANA_SYSTEM_PASSWORD:-}
     networks:
@@ -98,6 +104,45 @@ services:
       - elasticsearch
     restart: unless-stopped
 
+  database:
+    build:
+      context: .
+      dockerfile: PostgresDockerfile
+    container_name: database
+    ports:
+      - '5432:5432'
+    networks:
+      - elk
+    environment:
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_HOST_AUTH_METHOD=trust
+
+  redis:
+    image: 'redis:alpine'
+    container_name: redis
+    ports:
+      - '6379:6379'
+    networks:
+      - elk
+
+  pgsync:
+    build:
+      context: .
+      dockerfile: PgsyncDockerfile
+    container_name: pgsync
+    environment:
+      - PG_USER=postgres
+      - PG_PASSWORD=postgres
+      - PG_DATABASE=postgres
+      - PG_HOST=database
+      - ELASTICSEARCH_SCHEME=http
+      - ELASTICSEARCH_HOST=elasticsearch
+      - ELASTICSEARCH_PORT=9200
+      - ELASTICSEARCH_USER=elastic
+      - ELASTICSEARCH_PASSWORD=${ELASTIC_PASSWORD}
+      - REDIS_HOST=redis
+    networks:
+      - elk
 networks:
   elk:
     driver: bridge

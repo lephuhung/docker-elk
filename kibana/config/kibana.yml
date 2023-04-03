@@ -5,7 +5,8 @@
 server.name: kibana
 server.host: 0.0.0.0
 elasticsearch.hosts: [ http://elasticsearch:9200 ]
-
+enterpriseSearch.host: http://enterprise-search:3002
+enterpriseSearch.ssl.verificationMode: none
 monitoring.ui.container.elasticsearch.enabled: true
 monitoring.ui.container.logstash.enabled: true
 
