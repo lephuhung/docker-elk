@@ -3,7 +3,21 @@
     "database": "postgres",
     "index": "datadoc_index",
     "nodes": {
-      "table": "datadoc"
+      "table": "datadoc",
+      "schema":"datadoc",
+      "columns": [
+        "article_id",
+        "topic",
+        "href",
+        "publish_date",
+        "newspaper",
+        "created_date",
+        "language",
+        "sapo",
+        "content",
+        "feature_image"
+      ]
+
     }
   },
   {
