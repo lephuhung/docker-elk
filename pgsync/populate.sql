@@ -11,34 +11,35 @@ CREATE TABLE datadoc (
 	feature_image text
 );
 CREATE TABLE post (
-  FUID text PRIMARY KEY,
-  from_fuid text,
+  uid text,
   message text,
+  from_uid text,
   created_time timestamp,
   shares integer,
   reaction integer,
-  ID_FUID text,
+  id_uid text,
   type_id integer,
   created_at timestamp,
   updated_at timestamp
 );
-CREATE TABLE UID (
-  FUID text PRIMARY KEY,
+CREATE TABLE uid (
+  uid text,
   name text,
-  Image text NULL ,
+  image text NULL ,
   reaction integer,
   type_id integer,
   created_at timestamp,
   updated_at timestamp
 );
 CREATE TABLE comment (
-  FUID text PRIMARY KEY,
+  uid text,
   message text,
-  from_fuid text,
+  from_uid text,
   created_time timestamp,
   shares integer,
   reaction integer,
-  FUID_Post text,
+  uid_post text,
   created_at timestamp,
   updated_at timestamp
 );
+-- nhớ không viết in hoa--

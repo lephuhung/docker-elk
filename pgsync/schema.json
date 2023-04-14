@@ -68,30 +68,30 @@
     "nodes": {
       "table": "post",
       "columns": [
-        "FUID",
+        "uid",
         "message",
-        "from_fuid",
+        "from_uid",
         "created_time",
         "shares",
         "reaction",
-        "ID_FUID",
+        "id_uid",
         "type_id",
         "created_at",
         "updated_at"
       ],
       "transform": {
         "mapping": {
-          "FUID": {
+          "uid": {
             "type": "text",
-            "copy_to": "FUID"
+            "copy_to": "uid"
           },
           "message": {
             "type": "text",
             "copy_to": "message"
           },
-          "from_fuid": {
+          "from_uid": {
             "type": "text",
-            "copy_to": "from_fuid"
+            "copy_to": "from_uid"
           },
           "created_time": {
             "type": "date",
@@ -105,9 +105,9 @@
             "type": "integer",
             "copy_to": "reaction"
           },
-          "ID_FUID": {
+          "id_uid": {
             "type": "text",
-            "copy_to": "ID_FUID"
+            "copy_to": "id_uid"
           },
           "type_id": {
             "type": "integer",
@@ -131,29 +131,29 @@
     "nodes": {
       "table": "comment",
       "columns": [
-        "FUID",
+        "uid",
         "message",
-        "from_fuid",
+        "from_uid",
         "created_time",
         "shares",
         "reaction",
-        "FUID_Post",
+        "uid_post",
         "created_at",
         "updated_at"
       ],
       "transform": {
         "mapping": {
-          "FUID":{
+          "uid":{
             "type": "text",
-            "copy_to":"FUID"
+            "copy_to":"uid"
           },
           "message":{
             "type": "text",
             "copy_to":"message"
           },
-          "from_fuid":{
+          "from_uid":{
             "type": "text",
-            "copy_to":"from_fuid"
+            "copy_to":"from_uid"
           },
           "created_time":{
             "type":"date",
@@ -167,9 +167,9 @@
             "type":"integer",
             "copy_to":"reaction"
           },
-          "FUID_Post":{ 
+          "uid_post":{ 
             "type":"text",
-            "copy_to":"FUID_Post"
+            "copy_to":"uid_post"
           },
           "created_at":{
             "type":"date",
@@ -185,12 +185,12 @@
   },
   {
     "database": "postgres",
-    "index": "UID_index",
+    "index": "uid_index",
     "nodes": {
-      "table": "UID",
+      "table": "uid",
       "columns": [
-        "FUID",
-        "Image",
+        "uid",
+        "image",
         "name",
         "reaction",
         "type_id",
@@ -199,15 +199,15 @@
       ],
       "transform":{
         "mapping":{
-          "FUID":{
+          "uid":{
             "type": "text",
-            "copy_to":"FUID"
+            "copy_to":"uid"
           },
           "name":{
             "type":"text",
             "copy_to":"name"
           },
-          "Image":{
+          "image":{
             "type":"text",
             "copy_to":"image"
           },
