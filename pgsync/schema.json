@@ -4,7 +4,6 @@
     "index": "datadoc_index",
     "nodes": {
       "table": "datadoc",
-      "schema":"datadoc",
       "columns": [
         "article_id",
         "topic",
@@ -16,36 +15,220 @@
         "sapo",
         "content",
         "feature_image"
-      ]
-
+      ],
+      "transform": {
+        "mapping": {
+          "article_id": {
+            "type": "text",
+            "copy_to": "article_id"
+          },
+          "topic": {
+            "type": "text",
+            "copy_to": "topic"
+          },
+          "href": {
+            "type": "text",
+            "copy_to": "href"
+          },
+          "published_date": {
+            "type": "date",
+            "copy_to": "publish_date"
+          },
+          "newspaper": {
+            "type": "text",
+            "copy_to": "newspaper"
+          },
+          "created_date": {
+            "type": "date",
+            "copy_to": "created_date"
+          },
+          "language": {
+            "type": "text",
+            "copy_to": "language"
+          },
+          "sapo": {
+            "type": "text",
+            "copy_to": "sapo"
+          },
+          "content": {
+            "type": "text",
+            "copy_to": "content"
+          },
+          "feature_image": {
+            "type": "text",
+            "copy_to": "feature_image"
+          }
+        }
+      }
     }
   },
   {
     "database": "postgres",
     "index": "post_index",
     "nodes": {
-      "table": "post"
+      "table": "post",
+      "columns": [
+        "FUID",
+        "message",
+        "from_fuid",
+        "created_time",
+        "shares",
+        "reaction",
+        "ID_FUID",
+        "type_id",
+        "created_at",
+        "updated_at"
+      ],
+      "transform": {
+        "mapping": {
+          "FUID": {
+            "type": "text",
+            "copy_to": "FUID"
+          },
+          "message": {
+            "type": "text",
+            "copy_to": "message"
+          },
+          "from_fuid": {
+            "type": "text",
+            "copy_to": "from_fuid"
+          },
+          "created_time": {
+            "type": "date",
+            "copy_to": "created_time"
+          },
+          "shares": {
+            "type": "integer",
+            "copy_to": "shares"
+          },
+          "reaction": {
+            "type": "integer",
+            "copy_to": "reaction"
+          },
+          "ID_FUID": {
+            "type": "text",
+            "copy_to": "ID_FUID"
+          },
+          "type_id": {
+            "type": "integer",
+            "copy_to": "type_id"
+          },
+          "created_at": {
+            "type": "date",
+            "copy_to": "created_at"
+          },
+          "updated_at": {
+            "type": "date",
+            "copy_to": "updated_at"
+          }
+        }
+      }
     }
   },
   {
     "database": "postgres",
     "index": "comment_index",
     "nodes": {
-      "table": "comment"
+      "table": "comment",
+      "columns": [
+        "FUID",
+        "message",
+        "from_fuid",
+        "created_time",
+        "shares",
+        "reaction",
+        "FUID_Post",
+        "created_at",
+        "updated_at"
+      ],
+      "transform": {
+        "mapping": {
+          "FUID":{
+            "type": "text",
+            "copy_to":"FUID"
+          },
+          "message":{
+            "type": "text",
+            "copy_to":"message"
+          },
+          "from_fuid":{
+            "type": "text",
+            "copy_to":"from_fuid"
+          },
+          "created_time":{
+            "type":"date",
+            "copy_to":"created_time"
+          },
+          "shares":{
+            "type":"integer",
+            "copy_to":"shares"
+          },
+          "reaction":{
+            "type":"integer",
+            "copy_to":"reaction"
+          },
+          "FUID_Post":{ 
+            "type":"text",
+            "copy_to":"FUID_Post"
+          },
+          "created_at":{
+            "type":"date",
+            "copy_to":"created_at"
+          },
+          "updated_at":{
+            "type":"date",
+            "copy_to":"updated_at"
+          }
+        }
+      }
     }
   },
   {
     "database": "postgres",
-    "index": "page_index",
+    "index": "UID_index",
     "nodes": {
-      "table": "page"
-    }
-  },
-  {
-    "database":"postgres",
-    "index": "tags_index",
-    "nodes": {
-      "table":"tags_data"
+      "table": "UID",
+      "columns": [
+        "FUID",
+        "Image",
+        "name",
+        "reaction",
+        "type_id",
+        "created_at",
+        "updated_at"
+      ],
+      "transform":{
+        "mapping":{
+          "FUID":{
+            "type": "text",
+            "copy_to":"FUID"
+          },
+          "name":{
+            "type":"text",
+            "copy_to":"name"
+          },
+          "Image":{
+            "type":"text",
+            "copy_to":"image"
+          },
+          "reaction":{
+            "type":"integer",
+            "copy_to":"reaction"
+          },
+          "type_id":{
+            "type":"integer",
+            "copy_to":"type_id"
+          },
+          "created_at":{
+            "type":"date",
+            "copy_to":"created_at"
+          },
+          "updated_at":{
+            "type":"date",
+            "copy_to":"updated_at"
+          }
+        }
+      }
     }
   }
 ]

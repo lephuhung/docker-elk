@@ -10,29 +10,35 @@ CREATE TABLE datadoc (
 	content text,
 	feature_image text
 );
-CREATE TABLE page (
-  id_page SERIAL PRIMARY KEY,
-  id_fb_page text,
-  name_page text,
-  link_page text
-);
-
 CREATE TABLE post (
-  id_post SERIAL PRIMARY KEY,
-  id_fb_post text,
-  publish_time date,
-  content text
+  FUID text PRIMARY KEY,
+  from_fuid text,
+  message text,
+  created_time timestamp,
+  shares integer,
+  reaction integer,
+  ID_FUID text,
+  type_id integer,
+  created_at timestamp,
+  updated_at timestamp
 );
-
+CREATE TABLE UID (
+  FUID text PRIMARY KEY,
+  name text,
+  Image text NULL ,
+  reaction integer,
+  type_id integer,
+  created_at timestamp,
+  updated_at timestamp
+);
 CREATE TABLE comment (
-  id_comment SERIAL PRIMARY KEY,
-  id_post int,
-  id_user text,
-  content text,
-  publish_time date
-);
-CREATE TABLE tags_data (
-  id_tags_data SERIAL PRIMARY KEY,
-  id_data text,
-  id_tags int
+  FUID text PRIMARY KEY,
+  message text,
+  from_fuid text,
+  created_time timestamp,
+  shares integer,
+  reaction integer,
+  FUID_Post text,
+  created_at timestamp,
+  updated_at timestamp
 );
