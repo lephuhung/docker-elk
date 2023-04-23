@@ -25,12 +25,13 @@
           "topic": {
             "type": "text",
             "copy_to": "topic"
+            
           },
           "href": {
             "type": "text",
             "copy_to": "href"
           },
-          "published_date": {
+          "publish_date": {
             "type": "date",
             "copy_to": "publish_date"
           },
